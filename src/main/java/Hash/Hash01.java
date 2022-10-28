@@ -9,7 +9,7 @@ public class Hash01 {
             ascii += str.charAt(i);
 
         }
-        return ascii % 1000; // 1000개
+        return ascii % 1000; // 나누는 이유?
     }
 
     public static void main(String[] args) {
