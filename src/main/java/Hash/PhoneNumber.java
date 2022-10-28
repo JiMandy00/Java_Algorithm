@@ -5,9 +5,8 @@
 
 // 제한사항
 // 1. 전화번호부 길이
-// 2. 중복 불가
+// 2. 중복 불가 == HashSet
 // 3. 전화번호 길이 10~20
-
 
 
 package Hash;
@@ -16,16 +15,26 @@ import java.util.HashSet;
 
 public class PhoneNumber {
 
-    public boolean solution(int[] phone_book) {
+    public boolean solution(String[] phone_book) {
 
-        HashSet<Integer> hs = new HashSet<>();
+        // 중복제거
+        HashSet<String> hs = new HashSet<>();
 
         for (var num : phone_book) {
             hs.add(num);
         }
 
+        for (String phoneBook : phone_book) {
+            for (int i = 0; i < phoneBook.length(); i++) {
+                // 특정 값이 들어있는지 없는지 확인
+                if (hs.contains(phoneBook.substring(0, i))) {
+                    return false;
+                }
+            }
+        }
 
-        return true; //임시
+
+        return true;
     }
 
     public static void main(String[] args) {
