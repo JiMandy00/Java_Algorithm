@@ -28,13 +28,13 @@ public class PreparedTest {
     public int[] solution(int[] answers) {
 
         for (int i = 0; i < supoja_1.length; i++) { // supoja_1 길이만큼 반복한다는게 좋은 방법은 아닌거 같음
-            if (supoja_1[i] == answers[0]) {
+            if (supoja_1[i] == answers[i]) {
                 cnt1 += 1; // 맞춘 개수만큼 +1
             }
-            if (supoja_2[i] == answers[0]) {
+            if (supoja_2[i] == answers[i]) {
                 cnt2 += 1;
             }
-            if (supoja_3[i] == answers[0]) {
+            if (supoja_3[i] == answers[i]) {
                 cnt3 += 1;
             }
         }
