@@ -17,6 +17,7 @@ package prepare_test;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PreparedTest {
@@ -30,13 +31,13 @@ public class PreparedTest {
     public int[] solution(int[] answers) { // 학생들 점수 계산하는 부분
 
         for (int i = 0; i < answers.length; i++) { // 답지 개수 만큼 반복
-            if(supoja_1[i%5] == answers[i]) { // 왜 %하는지 아직도 이해를 못했지만 다른 분들 코드 봤음
+            if(supoja_1[i%supoja_1.length] == answers[i]) { // 숫자를 배열의 길이만큼 나눠주는 것으로 변경
                 cnt[0] += 1;
             }
-            if(supoja_2[i%8] == answers[i]) {
+            if(supoja_2[i%supoja_2.length] == answers[i]) {
                 cnt[1] += 1;
             }
-            if(supoja_3[i%10] == answers[i]) {
+            if(supoja_3[i% supoja_3.length] == answers[i]) {
                 cnt[2] += 1;
             }
         }
@@ -47,23 +48,17 @@ public class PreparedTest {
         // 위 같은 고민을 해결하고자 동적 배열인 ArrayList를 사용하겠습니다.
         List<Integer> winner = new ArrayList<>();
 
+        // int max = Math.max(int cnt[0], int cnt[1], int cnt[2]);
+        // 너무 많은 인수를 넣어서 에러가 났다. 아래처럼 수정
+        int max = Math.max(cnt[0], Math.max(cnt[1], cnt[2])); // Math.max 변경
 
-        if (cnt[0] > cnt[1]) {
-            if (cnt[0] > cnt[2]) {
-                winner.add(cnt[0]);
-            } else {
-                winner.add(cnt[0]);
-            }
-        } else if (cnt[1] > cnt[2]) {
-            winner.add(cnt[1]);
-        } else {
-            winner.add(cnt[2]);
-        }
+        // 중복도 있기 때문에 if문을 3번씩 써줬다. 중복된 수를 모두 넣으려고!
 
         answers = new int[winner.size()];
         for (int i = 0; i < winner.size(); i++) {
             answers[i] = winner.get(i);
         }
+
 
         return answers;
     }
@@ -71,7 +66,9 @@ public class PreparedTest {
     public static void main(String[] args) {
         PreparedTest pt = new PreparedTest();
         int[] solution = {1,2,3,4,5};
-        System.out.println((pt.solution(solution).toString()));
+        int[] arr = pt.solution(solution);
+        System.out.println(Arrays.toString(arr));
+
 
     }
 
