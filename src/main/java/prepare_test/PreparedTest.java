@@ -15,46 +15,55 @@
 
 package prepare_test;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class PreparedTest {
 
-    int cnt1 = 0; // 몇 문제를 맞췄는지 cnt하기 위해서 선언
-    int cnt2 = 0;
-    int cnt3 = 0;
-
-
     int[] supoja_1 = {1, 2, 3, 4, 5}; // 학생1
-    int[] supoja_2 = {2, 1, 2, 3, 2}; // 학생2
-    int[] supoja_3 = {3, 3, 1, 1, 2}; // 학생3
+    int[] supoja_2 = {2, 1, 2, 3, 2, 4, 2, 5}; // 학생2
+    int[] supoja_3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5}; // 학생3
 
+    int[] cnt = new int[3]; // 학생 점수를 담는 배열
 
-    int[][] students = {supoja_1, supoja_2, supoja_3};
+    public int[] solution(int[] answers) { // 학생들 점수 계산하는 부분
 
-    public int[] solution(int[] answers) {
-
-        for (int i = 0; i < students.length; i++) {
-            if (supoja_1[i] == answers[i]) {
-                cnt1 += 1; // 맞춘 개수만큼 +1
+        for (int i = 0; i < answers.length; i++) { // 답지 개수 만큼 반복
+            if(supoja_1[i%5] == answers[i]) { // 왜 %하는지 아직도 이해를 못했지만 다른 분들 코드 봤음
+                cnt[0] += 1;
             }
-            if (supoja_2[i] == answers[i]) {
-                cnt2 += 1;
+            if(supoja_2[i%8] == answers[i]) {
+                cnt[1] += 1;
             }
-            if (supoja_3[i] == answers[i]) {
-                cnt3 += 1;
-            }
-        }
-
-        int[] solvedMemver = new int[students.length]; // 맞춘 사람을 배열에 넣으려고 하는데 이게 아닌거 같기도 하고
-
-        if (cnt1 > cnt2) {
-            if (cnt1 > cnt3) {
-                solvedMemver.
+            if(supoja_3[i%10] == answers[i]) {
+                cnt[2] += 1;
             }
         }
 
+        // 문제 제일 많이 맞춘 학생을 계산하는 부분
+        // Math.max를 써볼까?
+        // int[] winner = new int[1]; // 흠.. 이러면 만약 동점이 생겨서 여러명 넣어야 하는 상황에서 가변적으로 배열 크기를 변경할 수 없음
+        // 위 같은 고민을 해결하고자 동적 배열인 ArrayList를 사용하겠습니다.
+        List<Integer> winner = new ArrayList<>();
 
 
+        if (cnt[0] > cnt[1]) {
+            if (cnt[0] > cnt[2]) {
+                winner.add(cnt[0]);
+            } else {
+                winner.add(cnt[0]);
+            }
+        } else if (cnt[1] > cnt[2]) {
+            winner.add(cnt[1]);
+        } else {
+            winner.add(cnt[2]);
+        }
 
-
+        answers = new int[winner.size()];
+        for (int i = 0; i < winner.size(); i++) {
+            answers[i] = winner.get(i);
+        }
 
         return answers;
     }
@@ -62,7 +71,7 @@ public class PreparedTest {
     public static void main(String[] args) {
         PreparedTest pt = new PreparedTest();
         int[] solution = {1,2,3,4,5};
-        pt.solution(solution);
+        System.out.println((pt.solution(solution).toString()));
 
     }
 
