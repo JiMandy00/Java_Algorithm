@@ -21,13 +21,17 @@ public class PreparedTest {
     int cnt2 = 0;
     int cnt3 = 0;
 
+
     int[] supoja_1 = {1, 2, 3, 4, 5}; // 학생1
     int[] supoja_2 = {2, 1, 2, 3, 2}; // 학생2
     int[] supoja_3 = {3, 3, 1, 1, 2}; // 학생3
 
+
+    int[][] students = {supoja_1, supoja_2, supoja_3};
+
     public int[] solution(int[] answers) {
 
-        for (int i = 0; i < supoja_1.length; i++) { // supoja_1 길이만큼 반복한다는게 좋은 방법은 아닌거 같음
+        for (int i = 0; i < students.length; i++) {
             if (supoja_1[i] == answers[i]) {
                 cnt1 += 1; // 맞춘 개수만큼 +1
             }
@@ -38,10 +42,14 @@ public class PreparedTest {
                 cnt3 += 1;
             }
         }
-        // 어? 1번 학생이 왜 1개를 맞추지? 전부 다 맞춰야하는데?
-        System.out.println(cnt1);
-        System.out.println(cnt2);
-        System.out.println(cnt3);
+
+        int[] solvedMemver = new int[students.length]; // 맞춘 사람을 배열에 넣으려고 하는데 이게 아닌거 같기도 하고
+
+        if (cnt1 > cnt2) {
+            if (cnt1 > cnt3) {
+                solvedMemver.
+            }
+        }
 
 
 
