@@ -52,7 +52,16 @@ public class PreparedTest {
         // 너무 많은 인수를 넣어서 에러가 났다. 아래처럼 수정
         int max = Math.max(cnt[0], Math.max(cnt[1], cnt[2])); // Math.max 변경
 
-        // 중복도 있기 때문에 if문을 3번씩 써줬다. 중복된 수를 모두 넣으려고!
+        // 점수가 최고면 우승자 리스트에 add
+        if(max==cnt[0]) {
+            winner.add(1); // 1번 학생
+        }
+        if(max==cnt[1]) {
+            winner.add(2);
+        }
+        if(max==cnt[2]) {
+            winner.add(3);
+        }
 
         answers = new int[winner.size()];
         for (int i = 0; i < winner.size(); i++) {
