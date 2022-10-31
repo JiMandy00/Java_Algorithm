@@ -17,7 +17,6 @@ package prepare_test;
 
 public class PreparedTest {
 
-    int member = 3; // 몇 번을 반복할지 일단 지정 해놨습니다... 좋은 방법은 아닌듯
     int cnt1 = 0; // 몇 문제를 맞췄는지 cnt하기 위해서 선언
     int cnt2 = 0;
     int cnt3 = 0;
@@ -28,17 +27,34 @@ public class PreparedTest {
 
     public int[] solution(int[] answers) {
 
-        for (int i = 1; i <= member; i++) { // 정답이랑 비교해서 맞는지 맞지 않는지 계산하는 반복문(미완)
-            for (int j = 0; j < answers.length; j++) {
-
-
+        for (int i = 0; i < supoja_1.length; i++) { // supoja_1 길이만큼 반복한다는게 좋은 방법은 아닌거 같음
+            if (supoja_1[i] == answers[0]) {
+                cnt1 += 1; // 맞춘 개수만큼 +1
+            }
+            if (supoja_2[i] == answers[0]) {
+                cnt2 += 1;
+            }
+            if (supoja_3[i] == answers[0]) {
+                cnt3 += 1;
             }
         }
+        // 어? 1번 학생이 왜 1개를 맞추지? 전부 다 맞춰야하는데?
+        System.out.println(cnt1);
+        System.out.println(cnt2);
+        System.out.println(cnt3);
+
+
+
+
+
 
         return answers;
     }
 
     public static void main(String[] args) {
+        PreparedTest pt = new PreparedTest();
+        int[] solution = {1,2,3,4,5};
+        pt.solution(solution);
 
     }
 
