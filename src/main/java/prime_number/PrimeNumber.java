@@ -6,24 +6,21 @@
 // 013은 0, 1, 3의 숫자가 있다는 의미 == 수를 조합하는 로직 == 3개의 숫자로 나올 수 있는 소수 경우의수는?
 // 위의 수로는 11, 101같은 소수를 만들 수 있습니다. == 조합된 수를 소수로 판별하고 출력하는 로직
 
-
 package prime_number;
+
+import java.sql.Statement;
+
+interface StatementStrategy {
+    boolean compare(int a, int b);
+}
 
 public class PrimeNumber {
 
-    boolean isPrime(int num) {
-
-    // i < num
-    // i < num / 2
-    // i * i < num
-    // Math.sqrt()를 사용할 수 있지만 연산이 많다는 단점
-    // System.out.println(Math.sqrt(num)); == i * i
-        for (int i = 2; i < num; i++) {
-        if(num % i == 0) return false;
+    boolean isPrime(int num, StatementStrategy stmt) {
+        for (int i = 2; stmt.compare(i, num); i++) {
+            if (num % i ==  0) return false;
+        } return true;
     }
-        return true;
-}
-
     public static void main(String[] args) {
 
     }
