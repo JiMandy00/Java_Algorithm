@@ -10,15 +10,19 @@
 package prime_number;
 
 public class PrimeNumber {
-    
-    // 소수 판별하는 방법
+
     boolean isPrime(int num) {
-        // num이 13이니까 12까지 나누어주기
-        for (int i = 2; i < num; i++) { // 2부터 본인까지 나누기
-            System.out.printf("remainder:%d", num % i); // 나머지 출력
-        }
-        return true;
+
+    // i < num
+    // i < num / 2
+    // i * i < num
+    // Math.sqrt()를 사용할 수 있지만 연산이 많다는 단점
+    // System.out.println(Math.sqrt(num)); == i * i
+        for (int i = 2; i < num; i++) {
+        if(num % i == 0) return false;
     }
+        return true;
+}
 
     public static void main(String[] args) {
 
