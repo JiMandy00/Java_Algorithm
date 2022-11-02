@@ -16,25 +16,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrimeNumberEratosthenes {
-    public static void main(String[] args) {
+    public int solution(int n) { // 1 ~ n 사이의 정수
 
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        int howManyRe = 50;
-        // 2~50 담기
-        for (int i = 2; i < howManyRe; i++) {
+        List<Integer> arrayList = new ArrayList<>();
+        int howManyRe = n;
+        // 2 ~ n 담기
+        for (int i = 1; i <= howManyRe; i++) {
             arrayList.add(i);
         }
 
         // 2, 3, 5, 7의 배수 지우기
         int[] primeNumbers = {2, 3, 5, 7};
+        arrayList.remove(0);
         for (int i = 0; i < primeNumbers.length; i++) {
-            for (int j = 0; j < arrayList.size(); j++) {
-                arrayList.remove(new Integer(primeNumbers[i]*j));
+            for (int j = 2; j < arrayList.size(); j++) {
+                arrayList.remove(Integer.valueOf(primeNumbers[i]*j));
             }
         }
+        int anwser = arrayList.size();
+        return anwser;
+    }
+
+    public static void main(String[] args) {
+        PrimeNumberEratosthenes pne = new PrimeNumberEratosthenes();
+        int result = pne.solution(50);
+        System.out.println(result);
 
 
-        System.out.println(arrayList);
+
 
 
     }
