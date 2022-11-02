@@ -13,6 +13,7 @@
 package prime_number;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PrimeNumberEratosthenes {
@@ -29,17 +30,20 @@ public class PrimeNumberEratosthenes {
         int[] primeNumbers = {2, 3, 5, 7};
         arrayList.remove(0);
         for (int i = 0; i < primeNumbers.length; i++) {
-            for (int j = 2; j < arrayList.size(); j++) {
-                arrayList.remove(Integer.valueOf(primeNumbers[i]*j));
+            for (int j = 0; j < arrayList.size(); j++) {
+                if (arrayList.get(j) % primeNumbers[i] == 0 && arrayList.get(j) > primeNumbers[i]) {
+                    arrayList.remove(Integer.valueOf(j));
+                }
             }
         }
+        System.out.println(arrayList);
         int anwser = arrayList.size();
         return anwser;
     }
 
     public static void main(String[] args) {
         PrimeNumberEratosthenes pne = new PrimeNumberEratosthenes();
-        int result = pne.solution(50);
+        int result = pne.solution(10);
         System.out.println(result);
 
 
