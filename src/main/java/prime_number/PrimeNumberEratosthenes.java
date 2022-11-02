@@ -33,6 +33,27 @@ public class PrimeNumberEratosthenes {
             }
         }
 
+        // 3의 배수 지우기
+        for (int i = 0; i < arrayList.size() ; i++) {
+            if (arrayList.get(i) % 3 == 0 && arrayList.get(i) > 3) {
+                arrayList.remove(i);
+            }
+        }
+
+        // 5의 배수 지우기
+        for (int i = 0; i < arrayList.size() ; i++) {
+            if (arrayList.get(i) % 5 == 0 && arrayList.get(i) > 5) {
+                arrayList.remove(i);
+            }
+        }
+
+        // 7의 배수 지우기
+        for (int i = 0; i < arrayList.size() ; i++) {
+            if (arrayList.get(i) % 7 == 0 && arrayList.get(i) > 7) {
+                arrayList.remove(i);
+            }
+        }
+
         int anwser = 0;
         return anwser;
     }
