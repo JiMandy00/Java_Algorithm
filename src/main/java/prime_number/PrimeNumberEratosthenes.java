@@ -20,16 +20,19 @@ public class PrimeNumberEratosthenes {
 
         ArrayList<Integer> arrayList = new ArrayList<>();
         int howManyRe = 50;
+        // 2~50 담기
         for (int i = 2; i < howManyRe; i++) {
             arrayList.add(i);
         }
 
-        for (int i = 2; i < arrayList.size(); i++) {
-            if (2*i > 50) {
-                break;
+        // 2, 3, 5, 7의 배수 지우기
+        int[] primeNumbers = {2, 3, 5, 7};
+        for (int i = 0; i < primeNumbers.length; i++) {
+            for (int j = 0; j < arrayList.size(); j++) {
+                arrayList.remove(new Integer(primeNumbers[i]*j));
             }
-            arrayList.remove(new Integer(2*i));
         }
+
 
         System.out.println(arrayList);
 
