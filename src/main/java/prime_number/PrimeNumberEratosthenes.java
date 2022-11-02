@@ -26,29 +26,18 @@ public class PrimeNumberEratosthenes {
             arrayList.add(i);
         }
 
-        // 2, 3, 5, 7의 배수 지우기
-        int[] primeNumbers = {2, 3, 5, 7};
-        arrayList.remove(0);
-        for (int i = 0; i < primeNumbers.length; i++) {
-            for (int j = 0; j < arrayList.size(); j++) {
-                if (arrayList.get(j) % primeNumbers[i] == 0 && arrayList.get(j) > primeNumbers[i]) {
-                    arrayList.remove(Integer.valueOf(j));
-                }
+        // 2의 배수 지우기
+        for (int i = 0; i < arrayList.size() ; i++) {
+            if (arrayList.get(i) % 2 == 0 && arrayList.get(i) > 2) {
+                arrayList.remove(i);
             }
         }
-        System.out.println(arrayList);
-        int anwser = arrayList.size();
+
+        int anwser = 0;
         return anwser;
     }
 
     public static void main(String[] args) {
-        PrimeNumberEratosthenes pne = new PrimeNumberEratosthenes();
-        int result = pne.solution(10);
-        System.out.println(result);
-
-
-
-
 
     }
 }
