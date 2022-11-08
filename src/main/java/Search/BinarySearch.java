@@ -35,14 +35,14 @@ public class BinarySearch {
             targetNum = half;
         }
 
-//        System.out.println(startPoint);
-//        System.out.println(endPoint);
-//        System.out.println(nums[startPoint]);
+        System.out.println(startPoint); // 5
+        System.out.println(endPoint); // 11
+        System.out.println(nums[startPoint]); // 6
 
         // 같은지 비교하기
-        while (startPoint == endPoint-1) {
+        while (startPoint < endPoint) {
             if (nums[startPoint] == targetNum) {
-                System.out.println(nums[startPoint]);
+                System.out.println(startPoint);
                 break;
             }
             startPoint++;
