@@ -35,9 +35,9 @@ public class BinarySearch {
             targetNum = half;
         }
 
-        System.out.println(startPoint); // 5
-        System.out.println(endPoint); // 11
-        System.out.println(nums[startPoint]); // 6
+//        System.out.println(startPoint); // 5
+//        System.out.println(endPoint); // 11
+//        System.out.println(nums[startPoint]); // 6
 
         // 같은지 비교하기
         while (startPoint < endPoint) {
