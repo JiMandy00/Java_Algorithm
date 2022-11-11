@@ -8,23 +8,27 @@ import java.util.Collections;
 import java.util.List;
 
 public class DontLikeSameNumber {
-    public static void main(String[] args) {
-
-//        int[] arr = {1, 1, 3, 3, 0, 1, 1};
-        int[] arr = {4, 4, 4, 3, 3};
-
+    public int[] solution(int []arr) {
+        int[] answer = {};
         List<Integer> list = new ArrayList<>();
 
-        // 기존 방식은 3개 이상의 반복을 잡아내지 못 함
-        // 리스트를 초기화하지 않고, 수가 겹치지 않으면 리스트에 add로 변경
-        int num = -1;
+        int num1 = -1;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != num) {
+            if (arr[i] != num1) {
                 list.add(arr[i]);
-                num = arr[i];
+                num1 = arr[i];
             }
         }
+        int cnt = 0;
+        for (int num2 : list) {
+            answer[cnt] = num2;
+            cnt++;
+        }
 
-        System.out.println(list.toString());
+        return answer;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
