@@ -14,22 +14,21 @@ public class QuickSort {
         list.addAll(mid);
         list.addAll(right);
 
-        Collections.sort(list);
-
         return list;
     }
 
     public List<Integer> sort(List<Integer> arr) {
+
+        if(arr.size() <= 1) return arr; // 재귀 탈출 조건
+
         // 1. 기준값 뽑기
         int pivot = arr.get(arr.size()/2);
         System.out.println("pivot : " + pivot);
-        List<Integer> mid = new ArrayList<>();
-        mid.add(pivot);
 
         // 2. 기준값 기준으로 왼/오 나누어 담기
         List<Integer> left = new ArrayList<>();
         List<Integer> right = new ArrayList<>();
-
+        List<Integer> mid = new ArrayList<>();
 
 
         for (int i = 0; i < arr.size(); i++) {
@@ -37,13 +36,11 @@ public class QuickSort {
                 left.add(arr.get(i));
             } else if (pivot < arr.get(i)) {
                 right.add(arr.get(i));
-            }
+            } else mid.add(arr.get(i));
         }
+
         System.out.println(left);
         System.out.println(right);
-
-
-
         return merge(left, mid, right);
     }
 
