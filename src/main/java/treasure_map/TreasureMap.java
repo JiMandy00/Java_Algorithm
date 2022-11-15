@@ -14,6 +14,7 @@ public class TreasureMap {
 
         // 10진수 -> 2진수
         for (int i = 0; i < n; i++) {
+
             arr1B[i] = String.format("%05d", Integer.parseInt(Integer.toBinaryString(arr1[i])));
             arr2B[i] = String.format("%05d", Integer.parseInt(Integer.toBinaryString(arr2[i])));
         }
