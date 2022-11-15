@@ -14,6 +14,8 @@ public class QuickSort {
         // 2. 기준값 기준으로 왼/오 나누어 담기
         List<Integer> left = new ArrayList<>();
         List<Integer> right = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+
 
         for (int i = 0; i < arr.size(); i++) {
             if(pivot > arr.get(i)) {
@@ -25,7 +27,11 @@ public class QuickSort {
         System.out.println(left);
         System.out.println(right);
 
-        return sort(left) + pivot + sort(right);
+        list.addAll(left);
+        list.add(pivot);
+        list.addAll(right);
+
+        return list;
     }
 
     public static void main(String[] args) {
@@ -35,6 +41,9 @@ public class QuickSort {
         for (int i = 0; i < arr.length; i++) {
             arrList.add(arr[i]);
         }
+
+        QuickSort qs = new QuickSort();
+        System.out.println(qs.sort(arrList));
 
 
 
