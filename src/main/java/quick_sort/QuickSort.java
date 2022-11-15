@@ -2,6 +2,7 @@ package quick_sort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class QuickSort {
@@ -30,6 +31,8 @@ public class QuickSort {
         list.addAll(left);
         list.add(pivot);
         list.addAll(right);
+
+        Collections.sort(list);
 
         return list;
     }
