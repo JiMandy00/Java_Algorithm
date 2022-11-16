@@ -13,29 +13,27 @@ public class QuickSort02 {
 
         int pivot = arr[(int)(arr.length/2)]; // arr 절반이 되는 값이 기준
         int leftIdx = 0;
-        int rightIdx = arr.length;
+        int rightIdx = arr.length-1;
         int tmp = 0;
 
-        if (pivot > arr[leftIdx]) {
-            leftIdx += 1;
-        }
-        if (pivot < arr[rightIdx]) {
-            rightIdx -= 1;
-        }
-        if (leftIdx >= rightIdx) {
-            tmp = leftIdx;
-            leftIdx = rightIdx;
-            rightIdx = tmp;
+        System.out.println("pivot : " + pivot);
 
-            // 이 부분은 왜 해주는 거지?
+        while (arr[leftIdx] < pivot) {
             leftIdx += 1;
+        }
+        while (arr[rightIdx] > pivot) {
             rightIdx -= 1;
         }
+
+        System.out.println("leftIdx : " + leftIdx);
+        System.out.println("rightIdx : " + rightIdx);
 
 
         return arr; // 임시
     }
     public static void main(String[] args) {
-
+        QuickSort02 qs = new QuickSort02();
+        int[] arr =  {20, 60, 5, 19, 40, 50, 5, 45};
+        qs.Sort(arr);
     }
 }
