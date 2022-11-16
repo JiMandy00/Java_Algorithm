@@ -41,7 +41,7 @@ public class QuickSort {
 
         System.out.println(left);
         System.out.println(right);
-        return merge(left, mid, right);
+        return merge(sort(left), mid, sort(right)); // 재귀 시작
     }
 
     public static void main(String[] args) {
