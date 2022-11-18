@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class Cihper {
     public String solution(String s, int n) {
         int[] intArr = new int[s.length()];
+        char[] charArr = new char[s.length()];
 
         for (int i = 0; i < s.length(); i++) {
             intArr[i] = ((int)(s.charAt(i)))+1;
@@ -17,7 +18,12 @@ public class Cihper {
             }
         }
 
-        System.out.println(Arrays.toString(intArr));
+        for (int i = 0; i < s.length(); i++) {
+            charArr[i] = (char) intArr[i];
+        }
+
+        System.out.println(Arrays.toString(charArr));
+
 
 
 
