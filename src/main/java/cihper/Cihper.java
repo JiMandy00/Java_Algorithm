@@ -8,32 +8,36 @@ public class Cihper {
     public String solution(String s, int n) {
         int[] intArr = new int[s.length()];
         char[] charArr = new char[s.length()];
+        String answer = "";
 
         for (int i = 0; i < s.length(); i++) {
-            intArr[i] = ((int)(s.charAt(i)))+1;
-            if (intArr[i] == 91) {
-                intArr[i] = 65;
-            } else if (intArr[i] == 123) {
-                intArr[i] = 97;
+            int askii = (int)(s.charAt(i));
+            if (askii == 90) {
+                askii = 64;
+            } else if (askii == 122) {
+                askii = 96;
             }
+
+            if (askii != 32) {
+                intArr[i] = (askii + n);
+            } else {
+                intArr[i] = 32;
+            }
+
         }
 
         for (int i = 0; i < s.length(); i++) {
-            charArr[i] = (char) intArr[i];
+
+            answer += (char)intArr[i];
         }
 
-        System.out.println(Arrays.toString(charArr));
+        System.out.println(answer);
 
-
-
-
-
-
-        return "";
+        return answer;
     }
     public static void main(String[] args) {
-        String s = "AB";
-        int n = 1;
+        String s = "a B z";
+        int n = 4;
 
         Cihper c = new Cihper();
         c.solution(s, n);
