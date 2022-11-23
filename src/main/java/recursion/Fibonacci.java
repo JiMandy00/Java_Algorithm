@@ -1,27 +1,23 @@
 // 22 11 23
 // 피보나치 수열
+// 입력받은 번째 수열을 출력
 package recursion;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Fibonacci {
-    public int fibonacci(int n) {
-        List<Integer> fibonacciNums = new ArrayList<>();
-        int i = 0;
-        fibonacciNums.add(1);
-        i = 1;
-        fibonacciNums.add(1);
-        for (int j = 2; j < n; j++) {
-            fibonacciNums.add(fibonacciNums.get(j-1) + fibonacciNums.get(j-2));
-        }
 
-        return fibonacciNums.get(n-1);
+    public int fibonacci(int n) {
+        if (n <= 1) {
+            return 1;
+        }
+        return fibonacci(n-1) + fibonacci(n-2);
     }
     public static void main(String[] args) {
         Fibonacci fibonacci = new Fibonacci();
-        int input = 10;
-        int result = fibonacci.fibonacci(input);
+        int input = 5;
+        int result = fibonacci.fibonacci(input-1);
         System.out.println(input + "번째 피보나치 수 : " + result);
     }
 }
