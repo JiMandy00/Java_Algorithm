@@ -12,8 +12,8 @@ public class Euclidean {
     }
     public static void main(String[] args) {
         Euclidean e = new Euclidean();
-        int inputA = 42;
-        int inputB = 196;
+        int inputA = 44;
+        int inputB = 154;
         int result = e.euclidean(inputA, inputB);
         System.out.println(inputA + "와 " + inputB + "의 최대 공약수는? " + result);
     }
