@@ -1,29 +1,36 @@
 // 22 11 28
+// 재귀 적용
 
 package alphabet;
 
 public class Alpabet01 {
-    public void alphabetTable() {
-        System.out.println("ABCD...");
-        for (int i = 65; i <= 90; i++) {
-            char alphabet = (char)i;
-            System.out.print(alphabet + ", ");
-        }
-        System.out.println();
-        System.out.println();
-        System.out.println("AA, AB, AC...");
-        for (int i = 65; i <= 90; i++) {
-            for (int j = 65; j <= 90 ; j++) {
-                char alphabet01 = (char)i;
-                char alphabet02 = (char)j;
-                System.out.printf("%s%s", alphabet01, alphabet02 + ", ");
-            }
+    public char alphabetTable01(char a) {
+        if (a > 90) {
+            return '?';
         }
 
-
+        System.out.print(a + ", ");
+        a = (char)((int)a + 1);
+        return alphabetTable01(a);
     }
+
+    public char alphabetTable02(char a, char b) {
+        if (a > 90) {
+            return '?';
+        }
+        System.out.printf("%s%s, ", a, b);
+        b = (char)((int)b + 1);
+        if (b > 90) {
+            a += 1;
+            b = 65;
+        }
+        return alphabetTable02(a, b);
+    }
+
     public static void main(String[] args) {
         Alpabet01 alpabet01 = new Alpabet01();
-        alpabet01.alphabetTable();
+        alpabet01.alphabetTable01('A');
+        System.out.println();
+        alpabet01.alphabetTable02('A', 'A');
     }
 }
